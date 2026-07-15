@@ -1,0 +1,52 @@
+import sqlite3
+
+def inserir_dados_teste():
+    conn = sqlite3.connect('questoes_estudos.db')
+    cursor = conn.cursor()
+
+    # Inserir Matérias
+    cursor.execute("INSERT OR IGNORE INTO materias (nome) VALUES ('Direito Constitucional')")
+    cursor.execute("INSERT OR IGNORE INTO materias (nome) VALUES ('Português')")
+    
+    # Pegar os IDs gerados para as matérias
+    cursor.execute("SELECT id FROM materias WHERE nome = 'Direito Constitucional'")
+    id_direito = cursor.fetchone()[0]
+    
+    cursor.execute("SELECT id FROM materias WHERE nome = 'Português'")
+    id_port = cursor.fetchone()[0]
+
+    # Inserir Questão de Direito
+    cursor.execute('''
+        INSERT INTO questoes (materia_id, enunciado, alt_a, alt_b, alt_c, alt_d, alt_e, alternativa_correta)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        id_direito,
+        "A Constituição Federal de 1988 define como objetivo fundamental da República Federativa do Brasil:",
+        "A) A garantia do desenvolvimento nacional.",
+        "B) A concessão de asilo político.",
+        "C) A prevalência dos direitos humanos.",
+        "D) A igualdade entre os Estados.",
+        "E) A defesa da paz.",
+        "A" # Alternativa correta é a A (Art. 3º da CF)
+    ))
+
+    # Inserir Questão de Português
+    cursor.execute('''
+        INSERT INTO questoes (materia_id, enunciado, alt_a, alt_b, alt_c, alt_d, alt_e, alternativa_correta)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        id_port,
+        "Assinale a alternativa em que a palavra sublinhada está grafada corretamente:",
+        "A) Ele agiu com muita mautice.",
+        "B) Desajustado, o jovem agiu com malvadeza.",
+        "C) Ela sempre foi muito malcriada.",
+        "D) O caçador agiu com muita mautade.",
+        None, # Nem toda banca usa alternativa E
+        "B"
+    ))
+
+    conn.commit()
+    conn.close()
+    print("Questões de teste inseridas com sucesso!")
+
+inserir_dados_teste()
