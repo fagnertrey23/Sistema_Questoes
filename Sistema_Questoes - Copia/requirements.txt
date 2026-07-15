@@ -1,7 +1,2 @@
 streamlit
-pandas
-pypdf
 google-genai
-beautifulsoup4
-requests
-psycopg2-binary
