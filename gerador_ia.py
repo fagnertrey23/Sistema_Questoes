@@ -23,8 +23,8 @@ def obtener_ou_criar_materia(cursor, nome_materia):
         cursor.execute("INSERT INTO materias (nome) VALUES (?)", (nome_materia,))
         return cursor.lastrowid
 
-def gerar_questoes_ia(materia, assunto_principal, banca, quantidade=3):
-    client = genai.Client(api_key=API_KEY)
+def gerar_questoes_ia(materia, assunto_principal, banca, quantidade):
+    #client = genai.Client(api_key=API_KEY)
     
     # 1. Atualizamos o prompt para exigir que a IA retorne a chave "assunto" no JSON
     prompt = f"""
