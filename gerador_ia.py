@@ -3,8 +3,11 @@ import json
 from google import genai
 from google.genai import types
 
+api_key = st.secrets["GEMINI_API_KEY"]
+
+client = genai.Client(api_key=api_key)
 # COLE A SUA CHAVE DA API DO GOOGLE BEM AQUI DENTRO DAS ASPAS
-API_KEY = "AQ.Ab8RN6LGawdt3KtqpNbD3IffDNTqZJMnQ3Aia0e3M_xnLEUCgQ"
+# API_KEY = "AQ.Ab8RN6LGawdt3KtqpNbD3IffDNTqZJMnQ3Aia0e3M_xnLEUCgQ"
 
 def conectar_db():
     return sqlite3.connect('questoes_estudos.db')
