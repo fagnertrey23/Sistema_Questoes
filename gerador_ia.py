@@ -2,6 +2,7 @@ import sqlite3
 import json
 from google import genai
 from google.genai import types
+import streamlit as st
 
 api_key = st.secrets["GEMINI_API_KEY"]
 
