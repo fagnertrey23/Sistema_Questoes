@@ -7,7 +7,8 @@ import re  # <-- IMPORTAÇÃO CORRIGIDA: Agora o Python reconhece essa ferrament
 from google import genai
 from google.genai import types
 
-from gerador_ia import API_KEY
+api_key = st.secrets["GEMINI_API_KEY"]
+client = genai.Client(api_key=api_key)
 
 def conectar_db():
     return sqlite3.connect('questoes_estudos.db')
