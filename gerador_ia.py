@@ -4,6 +4,7 @@ from google import genai
 from google.genai import types
 
 # COLE A SUA CHAVE DA API DO GOOGLE BEM AQUI DENTRO DAS ASPAS
+client = genai.Client()
 API_KEY = "AQ.Ab8RN6JVlsZLb1Xm90-1pGdpcaOTQmsmI3McJb3sedRAni3sZg"
 
 def conectar_db():
