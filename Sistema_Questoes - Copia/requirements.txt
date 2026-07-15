@@ -1,7 +1,0 @@
-streamlit
-google-genai
-pandas
-pypdf
-beautifulsoup4
-requests
-psycopg2
