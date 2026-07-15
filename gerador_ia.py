@@ -4,7 +4,7 @@ from google import genai
 from google.genai import types
 
 # COLE A SUA CHAVE DA API DO GOOGLE BEM AQUI DENTRO DAS ASPAS
-API_KEY = "AQ.Ab8RN6JVlsZLb1Xm90-1pGdpcaOTQmsmI3McJb3sedRAni3sZg"
+API_KEY = "AQ.Ab8RN6LGawdt3KtqpNbD3IffDNTqZJMnQ3Aia0e3M_xnLEUCgQ"
 
 def conectar_db():
     return sqlite3.connect('questoes_estudos.db')
